@@ -312,16 +312,36 @@ h1 { margin: 0; font-family: var(--display); font-weight: 850; text-transform: u
 
 /* ---- печать и PDF: та же тёмная страница, текст не мельче 12 pt, без движения и навигации ---- */
 @media print {
-  @page { size: A4; margin: 12mm 0; background: #0a0a0a; }
+  @page { size: A4; margin: 12mm 0; }  /* поля красит pdf-dorabotka.py: тёмная подложка под каждой страницей */
+  html, body { background: #0a0a0a !important; }
+  .hero { padding-top: 2mm; }
+  .foot { padding-bottom: 2mm; background: none !important; }
+  /* градиенты и штриховки браузер растрирует в PDF картинками - в печати сплошные цвета */
+  .vrezka, .duo-card.is-hot, .chart, .learn, .itog-panel, .tbl { background: #141414 !important; }
+  .duo-card { background: #1e1e1e !important; }
+  .tbl tr.mot td { background: #1e1e1e !important; }
+  .tbl tbody tr:nth-child(even) td { background: #171717 !important; }
+  .lad-row.is-eur .lad-bar { background: #6f6f6f !important; }
+  .itog-panel::before { display: none; }
+  .itog-panel { border-top: 3px solid #f0f0f0 !important; }
+  .lad-track { background: none !important; }
+  .hero::after { background: #333 !important; }
   html, body { background: #0a0a0a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   body { font-size: 12.5pt; overflow: visible; }
   body::before, .progress, .rail, .skip { display: none !important; }
   .col { max-width: 180mm; padding: 0 12mm; }
   .tbl { overflow: visible; }
+  /* таблица из 4 колонок в печати вылезала за край - фиксированные ширины, заголовки переносятся */
+  .tbl table:has(th:nth-child(4)) { table-layout: fixed; }
+  .tbl table:has(th:nth-child(4)) th { white-space: normal; }
+  .tbl table:has(th:nth-child(4)) th:nth-child(1) { width: 17%; }
+  .tbl table:has(th:nth-child(4)) th:nth-child(2) { width: 18%; }
+  .tbl table:has(th:nth-child(4)) th:nth-child(3) { width: 37%; }
+  .tbl table:has(th:nth-child(4)) th:nth-child(4) { width: 28%; }
   .tbl table { font-size: 11.5pt; }
-  .tbl th, .chart-src, .photo .credit, .duo-src, .lad-axis, .duo-who, .foot-dim, .byline { font-size: 11pt !important; }
+  .tbl th, .lad-axis, .cap-year { font-size: 11pt !important; }
+  .kicker, .chart-src, .photo .credit, .duo-src, .duo-who, .foot-dim, .byline, .learn li::before, .sm-sum, .tbl.stack td::before { font-size: 12pt !important; }
   .lad-what, .sm li, .split-key li, .cap-note, .vr-text, .chart-sub, .photo .ph-cap, .tw-cap, .duo-txt, .src-list, .learn li, .foot p { font-size: 12pt !important; }
-  .hero { padding-top: 6mm; }
   .chart, .vrezka, .photo, .tbl, .itog-panel, .duo-card, .learn, .tower li { break-inside: avoid; }
   h2, h3 { break-after: avoid; }
   .reveal * , .photo img { transform: none !important; filter: none !important; transition: none !important; animation: none !important; }
