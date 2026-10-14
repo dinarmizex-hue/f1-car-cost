@@ -204,6 +204,7 @@ h1 { margin: 0; font-family: var(--display); font-weight: 850; text-transform: u
 .chart-smeta .cap-note { margin-top: 10px; }
 /* мотор: смета против регламента */
 .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.duo-card:first-child { grid-column: 1 / -1; }  /* строка сметы сверху, две нормы регламента рядом под ней */
 .duo-card { display: grid; align-content: start; gap: 6px; padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); }
 .duo-card.is-hot { border-color: oklch(0.905 0.185 108 / 0.55); background: radial-gradient(20rem 8rem at 0 0, oklch(0.905 0.185 108 / 0.09), transparent 70%), var(--surface-2); }
 .duo-who { font-size: 13px; line-height: 1.35; letter-spacing: 0.02em; color: var(--muted); }
