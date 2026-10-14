@@ -239,6 +239,8 @@ h1 { margin: 0; font-family: var(--display); font-weight: 850; text-transform: u
 .foot { margin-top: 40px; padding: 26px 0 40px; border-top: 1px solid var(--line); background: oklch(0.12 0 0); }
 .foot p { margin: 0 0 8px; font-size: 14px; line-height: 1.5; color: var(--muted); }
 .foot .foot-main { font-size: 16px; color: var(--ink); font-weight: 700; }
+.foot .foot-contact { display: flex; flex-wrap: wrap; gap: 4px 22px; font-size: 16px; color: var(--ink-2); margin-bottom: 12px; }
+.foot-contact a { color: var(--ink); font-weight: 700; white-space: nowrap; }
 .foot-dim { font-size: 13px !important; }
 
 /* ---- боковая навигация на широких экранах ---- */
